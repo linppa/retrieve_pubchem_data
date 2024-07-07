@@ -5,8 +5,10 @@ import time
 # ================================================
 # UPDATE THESE VARIABLES TO MATCH YOUR FILE PATHS
 # ================================================
-INPUT_FILE = 'drug_input/generic_drugs.tsv'
-OUTPUT_FILE = 'drug_output/generic_drugs_output.tsv'
+# INPUT_FILE = 'drug_input/generic_drugs.tsv'
+# OUTPUT_FILE = 'drug_output/generic_drugs_output.tsv'
+INPUT_FILE = 'drug_input/pe_granted_drugs.tsv'
+OUTPUT_FILE = 'drug_output/pe_granted_drugs_output.tsv'
 
 # rate limit for pubchem
 REQUESTS_PER_SECOND = 5
@@ -76,7 +78,7 @@ def extract_info(data, cid):
     return compound_info
 
 def main(input_filename, output_filename):
-    drug_data = pd.read_csv(input_filename, sep='\t')
+    drug_data = pd.read_csv(input_filename, sep='\t', encoding='latin1')
     results = []
 
     for index, row in drug_data.iterrows():
